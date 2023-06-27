@@ -1,6 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\SlackController;
+use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [SlackController::class, 'index']);
+
+
+Route::get('/consume', function () {
+    $response = Http::get('https://api.slack.com/web');
+    $data = $response->json();
+
+    return view('consume', ['message' => $data['message']]);
 });

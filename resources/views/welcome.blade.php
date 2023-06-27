@@ -9,28 +9,68 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        {{-- CSS Framework --}}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
 
     </head>
     <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     @auth
-                        <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ url('/home') }}">Home</a>
+                        </li>
                     @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                        </li>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">login</a>
+                        </li>
                         @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="max-w-7xl mx-auto p-6 lg:p-8">
-
-
+                        @if(Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Register</a>
+                            </li>
+                        @endif
+                    @endauth 
+                </ul> 
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
             </div>
-        </div>
+          </nav>
+          
+
+            <div class="shadow bg-success p-5 m-5">
+                {{-- Thunder Client --}}
+                <h1>{{ $message }}</h1>
+            </div>
+
+        {{-- CSS Framework JavaScript Cdn --}}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
     </body>
 </html>
