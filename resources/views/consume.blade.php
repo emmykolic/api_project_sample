@@ -4,6 +4,8 @@
     <title>Consume API</title>
 </head>
 <body>
-    <h1>{{ $message }}</h1>
+    <h1>{{ $type }}</h1>
+    <h2>{{ $setup }}</h2>
+    <h3>{{ '$punchline' }}</h3>
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\SlackController;
+// use App\Http\Controllers\API\SlackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +19,20 @@ use App\Http\Controllers\API\SlackController;
 //     return $request->user();
 // });
 
-Route::get('/users', function () {
-    return response()->json(['users' => User::all()]);
-});
+// Route::get('/users', function () {
+//     return response()->json(['users' => User::all()]);
+// });
 
 
-Route::middleware('auth:api')->group(function () {
-    Route::get('/users', [UsersController::class, 'index']);
-    Route::post('/users', [UsersController::class, 'store']);
+// Route::middleware('auth:api')->group(function () {
+//     Route::get('/users', [UsersController::class, 'index']);
+//     Route::post('/users', [UsersController::class, 'store']);
+// });
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
 });
+
+Route::apiResource('/consume', 'App\Http\Controllers\API\SlackController');
 
 // Route::resource('/tasks', TaskController::class);

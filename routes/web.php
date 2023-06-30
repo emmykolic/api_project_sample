@@ -22,8 +22,12 @@ Route::get('/', [SlackController::class, 'index']);
 
 
 Route::get('/consume', function () {
-    $response = Http::get('https://api.slack.com/web');
+    $response = Http::get('https://official-joke-api.appspot.com/random_joke');
     $data = $response->json();
 
-    return view('consume', ['message' => $data['message']]);
+    return view('consume', 
+    ['type' => $data['type']],
+    ['setup'=>$data['setup']],
+    ['punchline'=>$data['punchline']]
+    );
 });

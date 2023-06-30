@@ -10,7 +10,8 @@ class SlackController extends Controller
     public function index()
     {
         $data = [
-            'message' => 'Hello, World!',
+            'name' => 'Hello, World!',
+            'country'=>'Nigeria'
         ];
 
         return response()->json($data);

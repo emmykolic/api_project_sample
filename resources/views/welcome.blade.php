@@ -23,7 +23,7 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    @auth
+                    {{-- @auth
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{ url('/home') }}">Home</a>
                         </li>
@@ -53,7 +53,7 @@
                                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Register</a>
                             </li>
                         @endif
-                    @endauth 
+                    @endauth  --}}
                 </ul> 
                 <form class="d-flex">
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -61,7 +61,7 @@
                 </form>
               </div>
             </div>
-          </nav>
+        </nav>
           
 
             <div class="shadow bg-success p-5 m-5">
