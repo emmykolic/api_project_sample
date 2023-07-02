@@ -69,6 +69,10 @@
                 <h1>{{ $message }}</h1>
             </div>
 
+            @foreach ($info as $item)
+                <li>{{ $item['type'] }}</li>
+            @endforeach
+
         {{-- CSS Framework JavaScript Cdn --}}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 

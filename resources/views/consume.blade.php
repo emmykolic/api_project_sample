@@ -4,8 +4,13 @@
     <title>Consume API</title>
 </head>
 <body>
-    <h1>{{ $type }}</h1>
-    <h2>{{ $setup }}</h2>
-    <h3>{{ '$punchline' }}</h3>
+    {{-- <img src="{{ $message }}" alt="" srcset=""> --}}
+    {{-- @foreach ($info as $item)
+        <li>{{ $item['type'] }}</li>
+    @endforeach --}}
+    <h3>{{ $type }}</h3>
+    <p>{{ $setup }}</p>
+
+    {{-- <p>{{ $type }}</p> --}}
 </body>
 </html>

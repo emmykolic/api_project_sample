@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\SlackController;
 use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\SlackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +18,24 @@ use Illuminate\Support\Facades\Http;
 //     return view('welcome');
 // });
 
-Route::get('/', [SlackController::class, 'index']);
+Route::get('/', ['SlackController@welcome']);
 
 
-Route::get('/consume', function () {
-    $response = Http::get('https://official-joke-api.appspot.com/random_joke');
-    $data = $response->json();
+// Route::get('/consume', function () {
+//     $responses = Http::get('https://official-joke-api.appspot.com/random_joke');
+//     $info = $responses->json_decode();
+//     // $response = Http::get('https://dog.ceo/api/breeds/image/random');
+//     // $data = $response->json();
 
-    return view('consume', 
-    ['type' => $data['type']],
-    ['setup'=>$data['setup']],
-    ['punchline'=>$data['punchline']]
-    );
-});
+//     return view('consume', 
+//     // ['message' => $data['message']],
+//     // ['status'=>$data['status']],
+
+//     ['type' => $info['type']],
+//     ['setup' => $info['setup']],
+//     ['punchline' => $info['punchline']],
+//     ['id' => $info['id']]
+//     );
+
+    
+// });
