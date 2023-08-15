@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
-use App\Http\Controllers\SlackController;
+use App\Http\Controllers\ContentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +18,12 @@ use App\Http\Controllers\SlackController;
 //     return view('welcome');
 // });
 
-Route::get('/', ['SlackController@welcome']);
+Route::get('/consume', [ContentController::class,'index']);
 
 
 // Route::get('/consume', function () {
 //     $responses = Http::get('https://official-joke-api.appspot.com/random_joke');
-//     $info = $responses->json_decode();
+//     $info = $responses->json();
 //     // $response = Http::get('https://dog.ceo/api/breeds/image/random');
 //     // $data = $response->json();
 
